@@ -1,6 +1,8 @@
 body {
+    position: relative;
     background-color: #000;
     color: #fff;
+    font-family: Helvetica, sans-serif;
 
     /* Allow mouse dragging. */
     -moz-user-select: none;
@@ -31,4 +33,27 @@ body {
     image-rendering: optimize-contrast;
     image-rendering: pixelated;
     -ms-interpolation-mode: nearest-neighbor;
+}
+
+.hud {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.hud > .score {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-size: 1.5rem;
+}
+
+.hud > .arena {
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
 }

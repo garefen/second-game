@@ -5,9 +5,27 @@ var game = {
     // an object where to store game information
     data : {
         // score
-        score : 0
+        score : 0,
+        arena : 1
     },
 
+    "changeScore" : function(reset) {
+        if (reset === 1) {
+            game.data.score = 0;
+        } else {
+            game.data.score += 1;
+        }
+        document.getElementById("score").innerHTML = game.data.score;
+    },
+
+    "changeArena" : function(reset) {
+        if (reset === 1) {
+            game.data.arena = 1
+        } else {
+            game.data.arena += 1;
+        }
+        document.getElementById("arena").innerHTML = game.data.arena;
+    },
 
     // Run on page load.
     "onload" : function () {
@@ -30,8 +48,14 @@ var game = {
         me.pool.register("player", game.Player);
         me.pool.register("enemy", game.Enemy);
         me.pool.register("laser", game.Laser);
+
         this.playScreen = new game.PlayScreen();
+        this.gameOverScreen = new game.GameOverScreen();
+        this.winScreen = new game.WinScreen();
+        
         me.state.set(me.state.PLAY, this.playScreen);
+        me.state.set(me.state.GAMEOVER, this.gameOverScreen);
+        me.state.set(me.state.CREDITS, this.winScreen);
 
         // start the game
         me.state.change(me.state.PLAY);

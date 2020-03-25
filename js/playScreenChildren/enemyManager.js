@@ -37,11 +37,12 @@ game.EnemyManager = me.Container.extend({
                 _this.pos.x += _this.vel;
             }
             game.playScreen.checkIfLoss(bounds.bottom); 
-        }, 1000 / 3);
+        }, 1000 / 6);
     },
 
     update: function (time) {
         if (this.children.length === 0 && this.createdEnemies) {
+            game.changeArena(0);
             game.playScreen.reset();
         }
         this._super(me.Container, "update", [time]);

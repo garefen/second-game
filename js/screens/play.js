@@ -8,10 +8,16 @@ game.PlayScreen = me.ScreenObject.extend({
         this.player = me.pool.pull("player");
         me.game.world.addChild(this.player, 1);
         
+
         this.enemyManager = new game.EnemyManager();
         this.enemyManager.createEnemies();
         me.game.world.addChild(this.enemyManager, 2);
         
+        
+        // this.HUD = new game.HUD.Container();
+        // me.game.world.addChild(this.HUD);
+
+
         me.input.bindKey(me.input.KEY.LEFT, "left");
         me.input.bindKey(me.input.KEY.RIGHT, "right");
         me.input.bindKey(me.input.KEY.A, "left");
@@ -21,7 +27,10 @@ game.PlayScreen = me.ScreenObject.extend({
 
     checkIfLoss: function(y) {
         if (y >= this.player.pos.y) {
+            game.changeScore(1);
+            game.changeArena(1);
             this.reset();
+            // me.state.change(me.state.GAMEOVER);
         }
     },
 
@@ -34,5 +43,7 @@ game.PlayScreen = me.ScreenObject.extend({
         me.input.unbindKey(me.input.KEY.A);
         me.input.unbindKey(me.input.KEY.D);
         me.input.unbindKey(me.input.KEY.SPACE);
+
+        me.game.world.removeChild(this.HUD);
     }
 });

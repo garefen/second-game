@@ -17,6 +17,12 @@
         <!-- Canvas placeholder -->
         <div id="screen"></div>
 
+        <!-- HUD -->
+        <div class="hud">
+            <div class="score">Kills: <span id="score">0</span></div>
+            <div class="arena">Arena: <span id="arena">1</span></div>
+        </div>
+
         <!-- es5/es6 shim for legacy browsers" -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.11/es5-shim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.11/es5-sham.min.js"></script>
@@ -35,11 +41,17 @@
         <script type="text/javascript" src="build/js/resources.js"></script>
 
         <script type="text/javascript" src="js/screens/play.js"></script>
+        <script type="text/javascript" src="js/screens/win.js"></script>
+        <script type="text/javascript" src="js/screens/gameover.js"></script>
+        <script type="text/javascript" src="js/screens/load.js"></script>
 
-        <script type="text/javascript" src="js/player.js"></script>
-        <script type="text/javascript" src="js/enemy.js"></script>
-        <script type="text/javascript" src="js/enemyManager.js"></script>
-        <script type="text/javascript" src="js/laser.js"></script>
+        <script type="text/javascript" src="js/playScreenChildren/player.js"></script>
+        <script type="text/javascript" src="js/playScreenChildren/enemy.js"></script>
+        <script type="text/javascript" src="js/playScreenChildren/enemyManager.js"></script>
+        <script type="text/javascript" src="js/playScreenChildren/laser.js"></script>
+        <script type="text/javascript" src="js/playScreenChildren/hud.js"></script>
+
+        <script type="text/javascript" src="js/gameOverScreenChildren/text.js"></script>
         <!-- /build -->
 
         <!-- Bootstrap -->
